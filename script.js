@@ -79,7 +79,14 @@ window.onload=() => {
 stopButton.addEventListener(
   "click",
   () => {
+    // stop preview
     stop(preview.srcObject);
+    document.getElementById("preview").hidden = true;
+    // show recording
+    document.getElementById("recording").hidden = false;
+    // show download button
+    document.getElementById("stopButton").hidden = true;
+    document.getElementById("downloadButton").hidden = false;
   },
   false,
 );
