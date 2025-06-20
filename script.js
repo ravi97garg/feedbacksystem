@@ -8,7 +8,7 @@ let logElement = document.getElementById("log");
 let recordingTimeMS = 5000;
 
 function log(msg) {
-  logElement.innerText += `${msg}\n`;
+  console.log(`${msg}\n`);
 }
 
 function wait(delayInMS) {
