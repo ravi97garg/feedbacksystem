@@ -1,0 +1,31 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+#stopButton {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border-color: transparent;
+    border: 1px;
+    background-color: black;
+    color: white;
+    display: flex;
+}
