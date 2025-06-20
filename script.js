@@ -41,12 +41,10 @@ function stop(stream) {
   stream.getTracks().forEach((track) => track.stop());
 }
 
-startButton.addEventListener(
-  "click",
-  () => {
+window.onload=() => {
     navigator.mediaDevices
       .getUserMedia({
-        video: true,
+        video: { facingMode: { exact: "environment" } },
         audio: true,
       })
       .then((stream) => {
@@ -76,9 +74,7 @@ startButton.addEventListener(
           log(error);
         }
       });
-  },
-  false,
-);
+  };
 
 stopButton.addEventListener(
   "click",
