@@ -61,7 +61,7 @@ startButton.addEventListener(
     "click", () => {
         document.getElementById("stopButton").style.display = "flex";
         document.getElementById("startButton").style.display = "none";
-        showCameraPreview.then(() => startRecording(preview.captureStream(), recordingTimeMS))
+        showCameraPreview().then(() => startRecording(preview.captureStream(), recordingTimeMS))
             .then((recordedChunks) => {
                 let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
                 recording.src = URL.createObjectURL(recordedBlob);
