@@ -19,8 +19,10 @@
     justify-content: center;
 }
 
-#stopButton {
-    width: 30px;
+#startButton,
+#stopButton,
+#downloadButton {
+    padding: 0 20px;
     height: 30px;
     border-radius: 30px;
     border-color: transparent;
