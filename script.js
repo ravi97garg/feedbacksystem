@@ -117,7 +117,7 @@ async function uploadFile(file) {
   });
 
   const data = await res.json();
-  return `https://drive.google.com/file/d/${data.id}/view`
+  return `https://drive.google.com/uc?export=download&id=${data.id}`
   // alert('File uploaded with ID: ' + `https://drive.google.com/file/d/${data.id}/view`);
 }
 
@@ -127,7 +127,7 @@ document.getElementById("uploadButton").addEventListener("click", async () => {
   const phone = document.querySelector('input[name="phone"]').value;
   const description = document.querySelector('textarea[name="description"]').value;
   if (!file) return alert("Please select a video first.");
-  if(!name || !phone) {
+  if (!name || !phone) {
     return alert("Please fill the mandatory fields.");
   }
 
@@ -136,25 +136,43 @@ document.getElementById("uploadButton").addEventListener("click", async () => {
   const issueLink = await uploadFile(file);
   const params = new URLSearchParams(window.location.search);
   const location = params.get('location'); // "basement"
-  emailjs.send(
-    'service_sxni04o',
-    'template_ozgrdxc',
-    {
-      id: id,
-      issueDate: new Date().toLocaleDateString(undefined, {
+
+  await fetch("https://gate.whapi.cloud/messages/video", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "inGvazNUgXBauoXLCrJD7eOJO5OOTAeX",
+    },
+    body: JSON.stringify({
+      "to": "918285325838",
+      "caption": `Hare Krishna prabhuji! \nA Complaint has been raised by ${name} (${phone}). We have fetched this complaint from ${location} on ${new Date().toLocaleDateString(undefined, {
         day: "numeric",
         month: "long",
         year: "numeric"
-      }),
-      name,
-      description,
-      phone,
-      issueLink,
-      location,
-      email: 'krishnanand.agb@gmail.com, harekrsna1896@gmail.com'
-    },
-    'Pend9MkbK8Ra8f1Gi'
-  );
+      })}\n` + (description ? `The description is as follows: \n${description}` : ""),
+      "media": issueLink
+    })
+  })
+
+  // emailjs.send(
+  //   'service_sxni04o',
+  //   'template_ozgrdxc',
+  //   {
+  //     id: id,
+  //     issueDate: new Date().toLocaleDateString(undefined, {
+  //       day: "numeric",
+  //       month: "long",
+  //       year: "numeric"
+  //     }),
+  //     name,
+  //     description,
+  //     phone,
+  //     issueLink,
+  //     location,
+  //     email: 'krishnanand.agb@gmail.com, harekrsna1896@gmail.com'
+  //   },
+  //   'Pend9MkbK8Ra8f1Gi'
+  // );
   detailsOverlay.style.display = "none";
   alert(`Thank you. We've raised your concern to concerned management team. Kindly note your issue ID #${id} for future reference.`)
 });
