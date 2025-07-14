@@ -144,7 +144,7 @@ document.getElementById("uploadButton").addEventListener("click", async () => {
       "Authorization": "inGvazNUgXBauoXLCrJD7eOJO5OOTAeX",
     },
     body: JSON.stringify({
-      "to": "918285325838",
+      "to": "919220616062",
       "caption": `Hare Krishna prabhuji! \nA Complaint has been raised by ${name} (${phone}). We have fetched this complaint from ${location} on ${new Date().toLocaleDateString(undefined, {
         day: "numeric",
         month: "long",
