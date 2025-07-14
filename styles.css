@@ -19,17 +19,31 @@
     justify-content: center;
 }
 
+.height-full {
+    height: 100%;
+}
+
+.cover {
+  object-fit: cover;
+}
+
 #startButton,
 #stopButton,
 #uploadButton {
-    padding: 0 20px;
-    height: 30px;
+    padding: 20px;
     border-radius: 30px;
     border-color: transparent;
     border: 1px;
     background-color: black;
     color: white;
     display: flex;
+    font-size: 40px;
+    margin: 20px;
+}
+
+#uploadButton {
+    margin: unset;
+    font-size: 24px;
 }
 
 .mandatory::after {
