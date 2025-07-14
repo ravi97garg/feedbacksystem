@@ -5,14 +5,14 @@
 </head>
 
 <body>
-    <div class="flex flex-col">
+    <div class="flex flex-col height-full">
         <div class="flex-1">
-            <video id="preview" width="100%" autoplay muted></video>
-            <video id="recording" loop hidden width="100%"></video>
+            <video id="preview" class="height-full cover" width="100%" autoplay muted></video>
+            <video id="recording" class="height-full cover" loop hidden width="100%"></video>
         </div>
         <div class="flex flex-row flex-center">
             <div id="startButton" class="button flex-center">Start Recording</div>
-            <div id="stopButton" style="display: none;" class="button flex-center">Stop</div>
+            <div id="stopButton" style="display: none;" class="button flex-center">Stop Recording</div>
         </div>
         <div id="detailsOverlay" class="overlay" style="display: none;">
             <div id="detailsForm" class="popup">
